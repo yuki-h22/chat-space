@@ -45,6 +45,13 @@ Things you may want to cover:
 - has_many :groups_users
 
 ## commentstable
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|image|text||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
 
 ## groups_userstable
 
