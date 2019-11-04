@@ -40,7 +40,9 @@ Things you may want to cover:
 |group_name|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |comment_id|integer|null: false, foreign_key: true|
-
+### Association
+- has_many :comments
+- has_many :groups_users
 
 ## commentstable
 
