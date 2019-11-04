@@ -37,9 +37,8 @@ Things you may want to cover:
 ## groupstable
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|comment_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+
 ### Association
 - has_many :comments
 - has_many :groups_users
