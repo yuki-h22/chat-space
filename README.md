@@ -25,6 +25,11 @@ Things you may want to cover:
 
 
 ## userstable
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
 
 ## groupstable
 
