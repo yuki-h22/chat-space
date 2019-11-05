@@ -1,11 +1,21 @@
+$left_font_color : #ffffff;
+
+
 .header{
   background-color: #38AEF0;
-  color: #ffffff;
+  color: $left_font_color;
   text-align: center;
 }
 
+
 .contents__left{
   float: left;
+  &_top{
+    background-color: #253141;
+    font-size: 16px;
+    font-weight: bold;
+    color: $left_font_color;
+  }
 }
 
 
