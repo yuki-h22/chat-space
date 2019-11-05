@@ -11,10 +11,37 @@ $left_font_color : #ffffff;
 .contents__left{
   float: left;
   &_top{
+    height: 90px;
+    width: 260px;
     background-color: #253141;
     font-size: 16px;
-    font-weight: bold;
+    padding: 0px 20px;
+    display:table-cell;
+    vertical-align:middle;
     color: $left_font_color;
+    font-weight: bold;
+
+  }
+  &_bottom{
+    height: calc(100vh - 90px - 20px);
+    width: 260px;
+    background-color: #2f3e51;
+    font-size: 16px;
+    padding: 0px 20px;
+    color: $left_font_color;
+    &_title{
+      font-size: 15px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+      color: $left_font_color;
+      font-weight: bold;
+    }
+    &_text{
+      font-size: 15px;
+      margin-bottom: 40px;
+      color: $left_font_color;
+      font-weight: bold;
+    }
   }
 }
 
