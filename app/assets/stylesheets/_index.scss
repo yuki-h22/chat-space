@@ -114,25 +114,22 @@ $bace_color : #ffffff;
         margin-left: 10px;
       }
     }
-    &_contents{
+  }
+    &_footer{
       display: flex;
       position: fixed;
+      justify-content: space-between;
+      align-items: center;
       bottom: 0;
       height: 90px;
-      width: 100%;
+      width: 100vw;
+      padding: 0 40px;
       background-color: #ddd;
       &_textbox{
-        float: left;
         background-color: #ffffff;
         color: #434a54;
         height: 50px;
-        width: calc(100% - 80px);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
+        width: 100%;
         &_text{
           font-size: 16px;
           color: #434a54;
@@ -143,13 +140,14 @@ $bace_color : #ffffff;
         } 
       }
       &_send{
-        float: right;
+        width: 100px;
         background-color: red;
         color: #434a54;
+      }
+      &_enpty{
 
       }
     }
-  }
 }
 
 .file{
