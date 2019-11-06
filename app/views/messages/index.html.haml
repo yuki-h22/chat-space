@@ -1,26 +1,5 @@
-.header
-  .header__logo
-    グループを作成しました
-
-.contents
-  .contents__left
-    .contents__left_top
-      test-user
-    .contents__left_bottom
-      .contents__left_bottom_title
-        test-group
-      .contents__left_bottom_text
-        グループタイトル
-
-  .contents__right
-    .contents__right_top
-      .contents__right_top_title
-        title
-      .contents__right_top_member
-        member
-      .contents__right_top_btn
-        Edit
-    .contents__right_bottom
-      %p thread
-.footer
-  %p text
+.wrapper
+  = render "header"
+  = render "side_bar"
+  = render "main_chat"
+  = render "footer"
