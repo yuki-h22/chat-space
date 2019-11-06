@@ -5,12 +5,13 @@ $bace_color : #ffffff;
   background-color: #38AEF0;
   color: $bace_color;
   text-align: center;
+  width: 100%;
 }
 
 
 .side{
   &_top{
-    height: 90px;
+    height: 100px;
     width: 260px;
     background-color: #253141;
     padding: 0px 20px;
@@ -33,33 +34,44 @@ $bace_color : #ffffff;
     font-size: 16px;
     padding: 0px 20px;
     color: $bace_color;
-    &_title{
+    &_title1{
       font-size: 15px;
       padding-top: 20px;
       padding-bottom: 5px;
       color: $bace_color;
       font-weight: bold;
     }
-    &_text{
+    &_text1{
       font-size: 11px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       color: $bace_color;
       font-weight: bold;
     }
+    &_title2{
+      font-size: 15px;
+      padding-top: 20px;
+      padding-bottom: 5px;
+      color: $bace_color;
+      font-weight: bold;
+    }
+    &_text2{
+      font-size: 11px;
+      margin-bottom: 20px;
+      color: $bace_color;
+      font-weight: bold;
+    }
+
   }
 }
 
 
 .main{
-  float: right;
   position: absolute;
   top: 24px;
   left: 300px;
-  background-color: orange;
-  width: 100vh;
+  width: calc(100% - 300px);
   &_top{
-    background-color: aqua;
-    height: 100px;
+    display: flex;
     padding-left: 40px;
     padding-right: 40px;
     border-bottom: solid #eeeeee;
@@ -67,7 +79,7 @@ $bace_color : #ffffff;
       float: left;
       &_upper{
         font-size: 20px;
-        color: #333333;
+        color: #140707;
         padding-top: 35px;
       }
       &_under{
@@ -77,11 +89,35 @@ $bace_color : #ffffff;
       }
     }
     &_btn{
-      float: right;
-      display:table-cell;
-      vertical-align:middle;
-      color: orangered;
+      margin: 28px 0 auto auto;
+      padding: 10px 20px;
+      color: skyblue;
+      border: solid 0.3px skyblue;
     }
+  }
+  &_bottom{
+    background-color: #fafafa;
+    height: 100%;
+    &_thread{
+      padding-top: 46px;
+      display: flex;
+      &_name{
+        font-size: 16px;
+        font-weight: bold;
+        color: #434a54;
+      }
+      &_date{
+        font-size: 12px;
+        color: #999999;
+        margin-left: 10px;
+      }
+    }
+    &_text{
+      font-size: 14px;
+      color: #434a54;
+      margin-top: 10px;
+    }
+
   }
 }
 
