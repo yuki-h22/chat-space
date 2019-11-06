@@ -28,7 +28,7 @@ $bace_color : #ffffff;
 
   }
   &_bottom{
-    height: 100vh;
+    height: calc(100vh - 100px);
     width: 260px;
     background-color: #2f3e51;
     font-size: 16px;
@@ -67,7 +67,7 @@ $bace_color : #ffffff;
 
 .main{
   position: absolute;
-  top: 24px;
+  top: 0px;
   left: 300px;
   width: calc(100% - 300px);
   &_top{
@@ -95,9 +95,9 @@ $bace_color : #ffffff;
       border: solid 0.3px skyblue;
     }
   }
-  &_bottom{
+  &_center{
     background-color: #fafafa;
-    height: 100vh;
+    height: calc(100vh - 100px - 90px);
     &_thread{
       padding-left: 40px;
       padding-right: 40px;  
@@ -115,39 +115,35 @@ $bace_color : #ffffff;
       }
     }
   }
-    &_footer{
-      display: flex;
-      position: fixed;
-      justify-content: space-between;
-      align-items: center;
-      bottom: 0;
-      height: 90px;
-      width: 100vw;
-      padding: 0 40px;
-      background-color: #ddd;
-      &_textbox{
-        background-color: #ffffff;
+  &_bottom{
+    display: flex;
+    position: relative;
+    align-items: center;
+    bottom: 0;
+    height: 90px;
+    padding: 0 40px;
+    background-color: #ddd;
+    &_textbox{
+      position: relative;
+      background-color: #ffffff;
+      color: #434a54;
+      height: 50px;
+      width: 100%;
+      &_text{
+        font-size: 16px;
         color: #434a54;
-        height: 50px;
-        width: 100%;
-        &_text{
-          font-size: 16px;
-          color: #434a54;
-          padding-left: 10px;
-        } 
-        &_img{
+        padding-left: 10px;
+      } 
+      &_img{
 
-        } 
-      }
-      &_send{
-        width: 100px;
-        background-color: red;
-        color: #434a54;
-      }
-      &_enpty{
-
-      }
+      } 
     }
+    &_send{
+      padding: 10px 20px;
+      color: skyblue;
+      border: solid 0.3px skyblue;
+    }
+  }
 }
 
 .file{
