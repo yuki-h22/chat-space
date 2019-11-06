@@ -5,17 +5,13 @@ $left_font_color : #ffffff;
   background-color: #38AEF0;
   color: $left_font_color;
   text-align: center;
-  width: calc(100vh + 300px);
 }
 
-.contents{
-  position: relative;
-}
 
 .contents__left{
   float: left;
   &_top{
-    height: 100px;
+    height: 90px;
     width: 260px;
     background-color: #253141;
     font-size: 16px;
@@ -27,7 +23,7 @@ $left_font_color : #ffffff;
 
   }
   &_bottom{
-    height: calc(100vh - 90px);
+    height: calc(100vh - 90px - 20px);
     width: 260px;
     background-color: #2f3e51;
     font-size: 16px;
