@@ -1,25 +1,29 @@
-$left_font_color : #ffffff;
+$bace_color : #ffffff;
 
 
 .header{
   background-color: #38AEF0;
-  color: $left_font_color;
+  color: $bace_color;
   text-align: center;
 }
 
 
 .side{
-  float: left;
   &_top{
     height: 90px;
     width: 260px;
     background-color: #253141;
-    font-size: 16px;
     padding: 0px 20px;
-    display:table-cell;
-    vertical-align:middle;
-    color: $left_font_color;
+    display: flex;
+    color: $bace_color;
     font-weight: bold;
+    &_name{
+      font-size: 16px;
+      margin: auto 0;
+    }
+    &_icon{
+      margin: auto 0 auto auto;
+    }
 
   }
   &_bottom{
@@ -28,18 +32,18 @@ $left_font_color : #ffffff;
     background-color: #2f3e51;
     font-size: 16px;
     padding: 0px 20px;
-    color: $left_font_color;
+    color: $bace_color;
     &_title{
       font-size: 15px;
       padding-top: 20px;
       padding-bottom: 5px;
-      color: $left_font_color;
+      color: $bace_color;
       font-weight: bold;
     }
     &_text{
-      font-size: 15px;
+      font-size: 11px;
       margin-bottom: 40px;
-      color: $left_font_color;
+      color: $bace_color;
       font-weight: bold;
     }
   }

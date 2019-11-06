@@ -1,9 +1,18 @@
 .side
   .side_top
-    test-user
+    .side_top_name
+      test-user
+    .side_top_icon
+      =link_to "#", class: "side_btn side_btn--new" do
+        <i class="fas fa-edit" style="color:white"></i>
+      =link_to "#", class: "side_btn side_btn--set" do
+        <i class="fas fa-cog" style="color:white"></i>
   .side_bottom
     .side_bottom_title
       test-group
     .side_bottom_text
       グループタイトル
+
+
+
 
