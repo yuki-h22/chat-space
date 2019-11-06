@@ -13,10 +13,14 @@
         nana
       .main_bottom_thread_date
         today
-    .main_bottom_text
-      message
-    .main_bottom_new
-      aa
-      %label{class: "input-box__image"}
-        %i.fa.fa-image
-          %input{type: "file"}
+    .main_bottom_contents
+      .main_bottom_contents_textbox
+        .main_bottom_contents_textbox_text
+          type a message
+        .main_bottom_contents_textbox_img
+          %label{class: "input-box__image"}
+            %i.fa.fa-image
+              %input{type: "file", class: "file"}
+      .main_bottom_contents_send
+        send
+
