@@ -124,9 +124,11 @@ $bace_color : #ffffff;
     padding: 0 40px;
     background-color: #ddd;
     &_textbox{
-      position: relative;
+      display: flex;
+      align-items: center;
       background-color: #ffffff;
       color: #434a54;
+      padding: 0 25px;
       height: 50px;
       width: 100%;
       &_text{
@@ -135,16 +137,21 @@ $bace_color : #ffffff;
         padding-left: 10px;
       } 
       &_img{
-
+        margin: auto 0px auto auto;
+        padding: 10px 0px;
+        float: right;
       } 
     }
     &_send{
-      padding: 10px 20px;
-      color: skyblue;
-      border: solid 0.3px skyblue;
+      margin-left: 20px;
+      padding: 10px 30px;
+      color: black;
+      border: solid 1px #38aef0;
+      background-color: #38aef0;
     }
   }
 }
+
 
 .file{
   display: none;
