@@ -3,10 +3,10 @@
     .side_top_name
       test-user
     .side_top_icon
-      =link_to "#", class: "side_btn side_btn--new" do
-        <i class="fas fa-edit" style="color:white"></i>
-      =link_to "#", class: "side_btn side_btn--set" do
-        <i class="fas fa-cog" style="color:white"></i>
+      =link_to "#", class: "edit_btn" do
+        %i.fas.fa-edit
+      =link_to "#", class: "set_btn" do
+        %i.fas.fa-cog
   .side_bottom
     .side_bottom_title1
       test
@@ -16,7 +16,4 @@
       test
     .side_bottom_text2
       まだメッセージはありません
-
-
-
 
