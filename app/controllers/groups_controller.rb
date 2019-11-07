@@ -5,16 +5,16 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @groupe = Groupe.new(groupe_params)
+    @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path, notice: "グループを作成しました"
+      redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
     end
   end
 
   private
-  def groupe_params
+  def group_params
     params.require(:group).permit(:name, user_ids: [] )
   end
 end
