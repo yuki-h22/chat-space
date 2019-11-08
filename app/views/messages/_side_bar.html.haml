@@ -3,12 +3,15 @@
     .side_top_name
       = current_user.name
     .side_top_icon
-      =link_to "#", class: "edit_btn" do
+      =link_to new_group_path, class: "edit_btn" do
         %i.fas.fa-edit
-      =link_to "edit_user_path(current_user)", class: "set_btn" do
+      =link_to edit_user_path(current_user), class: "set_btn" do
         %i.fas.fa-cog
   .side_bottom
-    .side_bottom_title1
-      test
-    .side_bottom_text1
-      まだメッセージはありません
+    - current_user.groups.each do |group|
+      .side_bottom_group
+        =link_to "#" do
+          .side_bottom_group_title1
+            = group.name
+          .side_bottom_group_text1
+            まだメッセージはありません
