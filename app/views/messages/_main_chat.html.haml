@@ -10,16 +10,16 @@
   .main_center
     .main_center_thread
       = render @messages
-        .main_center_thread_name
+      .main_center_thread_name
   .main_bottom
     .main_bottom_textbox
       .main_bottom_textbox_text
         = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message', style: "border: none"
       .main_bottom_textbox_img
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image', class: 'icon')
-          = f.file_field :image, class: 'hidden'
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "file"}
     .main_bottom_send
-      = f.submit 'Send', class: 'form__submit'
-
+      = form_for [@group, @message] do |f|
+        = f.submit 'Send', class: 'form__submit'

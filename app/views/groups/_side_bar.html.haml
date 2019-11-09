@@ -10,7 +10,7 @@
   .side_bottom
     - current_user.groups.each do |group|
       .side_bottom_group
-        =link_to "#", class: "message_path" do
+        =link_to group_messages_path(group) do
           .side_bottom_group_title1
             = group.name
           .side_bottom_group_text1

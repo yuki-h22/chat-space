@@ -66,6 +66,7 @@ $sendbtn_color : #38aef0;
     background-color: #ddd;
     &_textbox{
       @include displayflex();
+      display: flex;
       background-color: #ffffff;
       color: $wordcolor;
       padding: 0 25px;
@@ -82,15 +83,16 @@ $sendbtn_color : #38aef0;
         float: right;
       } 
     }
-    &_send{
-      margin-left: 20px;
-      padding: 10px 30px;
-      color: black;
-      border: solid 1px $sendbtn_color;
-      background-color: $sendbtn_color;
-    }
   }
 }
 .file{
   display: none;
+}
+
+.form__submit{
+  margin-left: 20px;
+  padding: 10px 30px;
+  color: black;
+  border: solid 1px $sendbtn_color;
+  background-color: $sendbtn_color;
 }
