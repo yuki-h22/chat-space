@@ -73,14 +73,15 @@ $sendbtn_color : #38aef0;
       height: 50px;
       width: 100%;
       &_text{
+        width: 100%;
         font-size: 16px;
         color: $wordcolor;
-        padding-left: 10px;
       } 
       &_img{
         margin: auto 0px auto auto;
         padding: 10px 0px;
         float: right;
+        font-size: 20px;
       } 
     }
   }
@@ -89,10 +90,28 @@ $sendbtn_color : #38aef0;
   display: none;
 }
 
+.main_top_btn:hover{
+  color: #ffffff;
+  border: solid 0.3px $topbtn_color;
+  background-color: $topbtn_color;
+}
+
+.form__message{
+  height: 40px;
+  padding-left: 10px;
+
+}
+
 .form__submit{
   margin-left: 20px;
   padding: 10px 30px;
   color: black;
   border: solid 1px $sendbtn_color;
   background-color: $sendbtn_color;
+}
+
+.form__submit:hover {
+  background-color: #fff;
+  border-color: $sendbtn_color;
+  color: $sendbtn_color;
 }
