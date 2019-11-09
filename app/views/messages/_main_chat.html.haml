@@ -9,21 +9,17 @@
       Edit
   .main_center
     .main_center_thread
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      = render @messages
         .main_center_thread_name
-          = f.label :image, class: 'form__mask__image' do
-            = icon('fas', 'image', class: 'icon')
-            = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
   .main_bottom
     .main_bottom_textbox
       .main_bottom_textbox_text
-        type a message
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .main_bottom_textbox_img
-        %label{class: "input-box__image"}
-          %i.fa.fa-image
-            %input{type: "file", class: "file"}
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
     .main_bottom_send
-      send
+      = f.submit 'Send', class: 'form__submit'
 
