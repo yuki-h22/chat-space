@@ -9,10 +9,13 @@
       Edit
   .main_center
     .main_center_thread
-      .main_center_thread_name
-        nana
-      .main_center_thread_date
-        today
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .main_center_thread_name
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
   .main_bottom
     .main_bottom_textbox
       .main_bottom_textbox_text
