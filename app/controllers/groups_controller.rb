@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, except: [:index, :new, :create]
+  before_action :set_group, except: [:index]
 
   def index
   end
@@ -32,6 +32,6 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    @group = Group.find(params[:group_id])
+    @group = Group.find(params[:id])
   end
 end
