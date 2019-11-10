@@ -58,39 +58,65 @@ $sendbtn_color : #38aef0;
     }
   }
   &_bottom{
-    position: relative;
-    @include displayflex();
     bottom: 0;
-    height: 90px;
-    padding: 0 40px;
+    height: 50px;
+    padding: 20px 40px;
     background-color: #ddd;
     &_textbox{
+      float: left;
       @include displayflex();
       background-color: #ffffff;
       color: $wordcolor;
       padding: 0 25px;
       height: 50px;
-      width: 100%;
+      width: calc(100% - 250px);
       &_text{
         font-size: 16px;
         color: $wordcolor;
-        padding-left: 10px;
-      } 
-      &_img{
-        margin: auto 0px auto auto;
-        padding: 10px 0px;
-        float: right;
+        width: 100%;
       } 
     }
+    &_img{
+      background-color: #fff;
+      height: 40px;
+      width: 50px;
+      float: left;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px;
+    } 
+    
     &_send{
-      margin-left: 20px;
-      padding: 10px 30px;
-      color: black;
-      border: solid 1px $sendbtn_color;
-      background-color: $sendbtn_color;
+      float: right;
     }
   }
 }
 .file{
   display: none;
+}
+
+.main_top_btn:hover{
+  color: #ffffff;
+  border: solid 0.3px $topbtn_color;
+  background-color: $topbtn_color;
+}
+
+.form__message{
+  height: 40px;
+  padding-left: 10px;
+
+}
+
+.form__submit{
+  margin-left: 20px;
+  padding: 10px 30px;
+  color: black;
+  border: solid 1px $sendbtn_color;
+  background-color: $sendbtn_color;
+}
+
+.form__submit:hover {
+  background-color: #fff;
+  border-color: $sendbtn_color;
+  color: $sendbtn_color;
 }
