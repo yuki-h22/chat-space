@@ -4,9 +4,9 @@
       = current_user.name
     .side_top_icon
       =link_to new_group_path, class: "new_btn" do
-        %i.fas.fa-edit
+        = fa_icon 'edit'
       =link_to edit_user_path(current_user), class: "edit_btn" do
-        %i.fas.fa-cog
+        = fa_icon 'cog'
   .side_bottom
     - current_user.groups.each do |group|
       .side_bottom_group
