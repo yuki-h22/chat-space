@@ -58,31 +58,36 @@ $sendbtn_color : #38aef0;
     }
   }
   &_bottom{
-    position: relative;
-    @include displayflex();
     bottom: 0;
-    height: 90px;
-    padding: 0 40px;
+    height: 50px;
+    padding: 20px 40px;
     background-color: #ddd;
     &_textbox{
+      float: left;
       @include displayflex();
-      display: flex;
       background-color: #ffffff;
       color: $wordcolor;
       padding: 0 25px;
       height: 50px;
-      width: 100%;
+      width: calc(100% - 250px);
       &_text{
-        width: 100%;
         font-size: 16px;
         color: $wordcolor;
+        width: 100%;
       } 
-      &_img{
-        margin: auto 0px auto auto;
-        padding: 10px 0px;
-        float: right;
-        font-size: 20px;
-      } 
+    }
+    &_img{
+      background-color: #fff;
+      height: 40px;
+      width: 50px;
+      float: left;
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px;
+    } 
+    
+    &_send{
+      float: right;
     }
   }
 }
