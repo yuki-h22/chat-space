@@ -4,9 +4,8 @@
       .main_top_title_upper
         = @group.name
       .main_top_title_under
-        member:
-          - @group.users.each do |user|
-            = user.name    
+        - @group.users.each do |user|
+          = user.name    
     .main_top_btn
       = link_to edit_group_path(current_user), class: "chat_edit_btn" do
         Edit
@@ -19,9 +18,9 @@
       .main_bottom_textbox
         .main_bottom_textbox_text
           = f.text_field :content, class: 'form__message', placeholder: 'type a message', style: "border: none"
-      .main_bottom_img
-        = label :image, class: "input-box__image" do
-          = fa_icon 'picture-o'
-          = f.file_field :image, class: 'file'
+        .main_bottom_textbox_img
+          = label :image, class: "input-box__image" do
+            = fa_icon 'picture-o'
+            = f.file_field :image, class: 'file'
       .main_bottom_send
         = f.submit 'Send', class: 'form__submit'
