@@ -18,9 +18,9 @@
       .main_bottom_textbox
         .main_bottom_textbox_text
           = f.text_field :content, class: 'form__message', placeholder: 'type a message', style: "border: none"
-      .main_bottom_img
-        = label :image, class: "input-box__image" do
-          = fa_icon 'picture-o'
-          = f.file_field :image, class: 'file'
+        .main_bottom_textbox_img
+          = label :image, class: "input-box__image" do
+            = fa_icon 'picture-o'
+            = f.file_field :image, class: 'file'
       .main_bottom_send
         = f.submit 'Send', class: 'form__submit'

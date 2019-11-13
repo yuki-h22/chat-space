@@ -65,32 +65,31 @@ $sendbtn_color : #38aef0;
     &_textbox{
       float: left;
       @include displayflex();
-      background-color: #ffffff;
-      color: $wordcolor;
-      padding: 0 25px;
       height: 50px;
-      width: calc(100% - 250px);
+      width: calc(100% - 140px);
       &_text{
         font-size: 16px;
         color: $wordcolor;
+        height: 40px;
         width: 100%;
-      } 
+      }
+      &_img{
+        background-color: #fff;
+        float: right;
+        font-size: 20px;
+        height: 35px;
+        width: 40px;
+        padding-top: 5px;
+      }     
+      
     }
-    &_img{
-      background-color: #fff;
-      height: 40px;
-      width: 50px;
-      float: left;
-      font-size: 20px;
-      text-align: center;
-      padding-top: 10px;
-    } 
     
     &_send{
       float: right;
     }
   }
 }
+
 .file{
   display: none;
 }
@@ -103,6 +102,7 @@ $sendbtn_color : #38aef0;
 
 .form__message{
   height: 40px;
+  width: 100%;
   padding-left: 10px;
 
 }
