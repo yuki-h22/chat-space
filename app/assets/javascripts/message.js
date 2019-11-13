@@ -3,18 +3,18 @@ $(function(){
 
 
   function buildMessage(post){
-    let html = `<div class="main_center_thread">
+    var html = `<div class="main_center_thread">
                   <div class="main_center_thread_upper-message">
                     <div class="main_center_thread_upper-message_name">
-                      ${post.user_id}
+                      ${post.user_name}
                     </div>
                     <div class="main_center_thread_upper-message_date">
-                      ${post.created_at}
+                      ${post.updated_at}
                     </div>
                   </div>
                   <div class="main_center_thread_lower-message">
                     <p class="lower-message__content">
-                      ${post.contene}
+                      ${post.content}
                     </p>
                   </div>
                 </div>`
@@ -38,9 +38,10 @@ $(function(){
     .done(function(post){
       var html = buildMessage(post);
       $('.main_center').append(html);
+      $('.form__message').val('');
     })
-    .fail(function(){
-
+    .fail(function(post){
+    
     })
   })
 });
