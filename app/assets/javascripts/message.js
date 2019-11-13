@@ -9,7 +9,7 @@ $(function(){
                       ${post.user_name}
                     </div>
                     <div class="main_center_thread_upper-message_date">
-                      ${post.updated_at}
+                      ${post.time}
                     </div>
                   </div>
                   <div class="main_center_thread_lower-message">
@@ -39,10 +39,15 @@ $(function(){
       var html = buildMessage(post);
       $('.main_center').append(html);
       $('.form__message').val('');
+      $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
     })
-    .fail(function(post){
-    
+
+    .fail(function(){
+      alert('入力エラー:\nメッセージが入力されていません');
     })
+    .always(function() {
+      $(".form__submit").removeAttr("disabled");
+    });
   })
 });
 
