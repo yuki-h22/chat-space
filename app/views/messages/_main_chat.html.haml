@@ -10,9 +10,7 @@
       = link_to edit_group_path(current_user), class: "chat_edit_btn" do
         Edit
   .main_center
-    .main_center_thread
-      = render @messages
-      .main_center_thread_name
+    = render @messages
   .main_bottom
     = form_for [@group, @message] do |f|
       .main_bottom_textbox
