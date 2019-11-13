@@ -1,10 +1,10 @@
-.message
-  .upper-message
-    .upper-message__user-name
+.main_center_thread
+  .main_center_thread_upper-message
+    .main_center_thread_upper-message_name
       = message.user.name
-    .upper-message__date
+    .main_center_thread_upper-message_date
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-  .lower-message
+  .main_center_thread_lower-message
     - if message.content.present?
       %p.lower-message__content
         = message.content
