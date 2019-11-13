@@ -17,6 +17,7 @@ $(function(){
                       ${post.content}
                     </p>
                   </div>
+                  <img src = ${post.image}>
                 </div>`
     return html;
   }
