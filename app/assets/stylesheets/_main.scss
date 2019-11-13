@@ -38,16 +38,17 @@ $sendbtn_color : #38aef0;
     }
   }
   &_center{
-    overflow: auto;
+    overflow-y: auto;
     box-sizing: border-box;
     background-color: #fafafa;
     height: calc(100vh - 190px);
     &_thread{
-      overflow-y: auto;
+      width: 450px;
       padding-left: 40px;
       padding-right: 40px;  
       padding-top: 46px;
       &_upper-message{
+        word-break: normal;
         &_name{
           font-size: 16px;
           font-weight: bold;
@@ -69,21 +70,19 @@ $sendbtn_color : #38aef0;
     &_textbox{
       float: left;
       @include displayflex();
-      height: 50px;
+      height: 60px;
       width: calc(100% - 140px);
       &_text{
         font-size: 16px;
         color: $wordcolor;
-        height: 40px;
+        height: 50px;
         width: 100%;
+        margin-right: -30px;
       }
       &_img{
-        background-color: #fff;
         float: right;
         font-size: 20px;
-        height: 35px;
-        width: 40px;
-        padding-top: 5px;
+        padding-bottom: 10px;
       }     
       
     }
