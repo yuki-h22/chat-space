@@ -8,7 +8,6 @@ $sendbtn_color : #38aef0;
 }
 
 .main{
-  box-sizing: border-box;
   float: right;
   left: 300px;
   width: calc(100% - 300px);
@@ -16,7 +15,7 @@ $sendbtn_color : #38aef0;
     display: flex;
     padding-left: 40px;
     padding-right: 40px;
-    border-bottom: solid #eeeeee;
+    border-bottom: solid 2px #eeeeee;
     &_title{
       float: left;
       &_upper{
