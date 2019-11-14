@@ -1,46 +1,24 @@
 $(function(){
   function buildMessage(post){
-    if ( post.image ) {
-      var html = 
-      `<div class="main_center_thread">
-          <div class="main_center_thread_upper-message">
-            <div class="main_center_thread_upper-message_name">
-              ${post.user_name}
-            </div>
-            <div class="main_center_thread_upper-message_date">
-              ${post.time}
-            </div>
-          </div>
-          <div class="main_center_thread_lower-message">
-            <p class="lower-message__content">
-              ${post.content}
-            </p>
-          </div>
-          <img src = ${post.image} >
-        </div>`
-      return html;
-    } else {
-      var html = 
-      `<div class="main_center_thread">
-          <div class="main_center_thread_upper-message">
-            <div class="main_center_thread_upper-message_name">
-              ${post.user_name}
-            </div>
-            <div class="main_center_thread_upper-message_date">
-              ${post.time}
-            </div>
-          </div>
-          <div class="main_center_thread_lower-message">
-            <p class="lower-message__content">
-              ${post.content}
-            </p>
-          </div>
-        </div>`
-      return html;
-    };
-  }
-
-
+    image = ( post.image ) ? `<img src=${post.image} >` : "";
+      let html = `<div class = "main_center_thread">
+                    <div class ="main_center_thread_upper-message">
+                      <div class ="main_center_thread_upper-message_name">
+                        ${post.user_name}
+                      </div>
+                      <div class ="main_center_thread_upper-message_date">
+                        ${post.time}
+                      </div>
+                    </div>
+                    <div class = "main_center_thread_lower-message">
+                      <p class = "lower-message__content">
+                        ${post.content}
+                      </p>
+                    </div>
+                      ${image}
+                  </div> `
+    return html
+  };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault()
@@ -57,16 +35,14 @@ $(function(){
     .done(function(post){
       var html = buildMessage(post);
       $('.main_center').append(html);
-      $('.form__message').val('');
       $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+      $('form')[0].reset();
     })
 
     .fail(function(){
       alert('入力エラー:\nメッセージが入力されていません');
     })
-    .always(function() {
-      $(".form__submit").removeAttr("disabled");
-    });
+    return false;
   });
 });
 
