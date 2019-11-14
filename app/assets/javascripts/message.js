@@ -1,25 +1,43 @@
 $(function(){
-
-
-
   function buildMessage(post){
-    var html = `<div class="main_center_thread">
-                  <div class="main_center_thread_upper-message">
-                    <div class="main_center_thread_upper-message_name">
-                      ${post.user_name}
-                    </div>
-                    <div class="main_center_thread_upper-message_date">
-                      ${post.time}
-                    </div>
-                  </div>
-                  <div class="main_center_thread_lower-message">
-                    <p class="lower-message__content">
-                      ${post.content}
-                    </p>
-                  </div>
-                  <img src = ${post.image}>
-                </div>`
-    return html;
+    if ( post.image ) {
+      var html = 
+      `<div class="main_center_thread">
+          <div class="main_center_thread_upper-message">
+            <div class="main_center_thread_upper-message_name">
+              ${post.user_name}
+            </div>
+            <div class="main_center_thread_upper-message_date">
+              ${post.time}
+            </div>
+          </div>
+          <div class="main_center_thread_lower-message">
+            <p class="lower-message__content">
+              ${post.content}
+            </p>
+          </div>
+          <img src = ${post.image} >
+        </div>`
+      return html;
+    } else {
+      var html = 
+      `<div class="main_center_thread">
+          <div class="main_center_thread_upper-message">
+            <div class="main_center_thread_upper-message_name">
+              ${post.user_name}
+            </div>
+            <div class="main_center_thread_upper-message_date">
+              ${post.time}
+            </div>
+          </div>
+          <div class="main_center_thread_lower-message">
+            <p class="lower-message__content">
+              ${post.content}
+            </p>
+          </div>
+        </div>`
+      return html;
+    };
   }
 
 
@@ -49,7 +67,7 @@ $(function(){
     .always(function() {
       $(".form__submit").removeAttr("disabled");
     });
-  })
+  });
 });
 
 
