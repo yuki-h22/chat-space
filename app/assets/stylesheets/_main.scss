@@ -8,15 +8,14 @@ $sendbtn_color : #38aef0;
 }
 
 .main{
-  position: absolute;
-  top: 0px;
+  float: right;
   left: 300px;
   width: calc(100% - 300px);
   &_top{
     display: flex;
     padding-left: 40px;
     padding-right: 40px;
-    border-bottom: solid #eeeeee;
+    border-bottom: solid 2px #eeeeee;
     &_title{
       float: left;
       &_upper{
@@ -38,48 +37,51 @@ $sendbtn_color : #38aef0;
     }
   }
   &_center{
+    overflow-y: auto;
+    box-sizing: border-box;
     background-color: #fafafa;
-    height: calc(100vh - 100px - 90px);
+    height: calc(100vh - 190px);
     &_thread{
+      width: 450px;
       padding-left: 40px;
       padding-right: 40px;  
       padding-top: 46px;
-      display: flex;
-      &_name{
-        font-size: 16px;
-        font-weight: bold;
-        color: $wordcolor;
-      }
-      &_date{
-        font-size: 12px;
-        color: #999999;
-        margin-left: 10px;
+      &_upper-message{
+        word-break: normal;
+        &_name{
+          font-size: 16px;
+          font-weight: bold;
+          color: $wordcolor;
+        }
+        &_date{
+          font-size: 12px;
+          color: #999999;
+          margin-left: 10px;
+        }
       }
     }
   }
   &_bottom{
-    bottom: 0;
-    height: 50px;
+    box-sizing: border-box;
+    height: 90px;
     padding: 20px 40px;
     background-color: #ddd;
     &_textbox{
       float: left;
       @include displayflex();
-      height: 50px;
+      height: 60px;
       width: calc(100% - 140px);
       &_text{
         font-size: 16px;
         color: $wordcolor;
-        height: 40px;
+        height: 50px;
         width: 100%;
+        margin-right: -30px;
       }
       &_img{
-        background-color: #fff;
         float: right;
         font-size: 20px;
-        height: 35px;
-        width: 40px;
-        padding-top: 5px;
+        padding-bottom: 10px;
       }     
       
     }
