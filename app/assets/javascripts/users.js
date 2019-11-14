@@ -19,6 +19,7 @@ $(function() {
   }
   function addDeleteUser(name, id) {
     let html = `
+    <input name='group[user_ids][]' type='hidden' value='user.id'>
     <div class="ChatMember clearfix" id="${id}">
       <p class="ChatMember__name">${name}</p>
       <div class="ChatMember__remove ChatMember__button" data-user-id="${id}" data-user-name="${name}">削除</div>
@@ -45,9 +46,15 @@ $(function() {
         } else {
           addNoUser();
         }
+    
       })
       .fail(function() {
         alert("通信エラーです。ユーザーが表示できません。");
       });
     });
+
+  $(document).on('click', '.chat-group-user__btn--add' , function() {
+    addDeleteUser(userName, userId);
+
+  });
 });
