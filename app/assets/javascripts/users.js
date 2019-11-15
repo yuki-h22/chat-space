@@ -78,8 +78,8 @@ $(function() {
       addMember(userId)
     });
     $(document).on('click', '.js-remove-btn' , function(){
-      const username = $(this).attr("data-userName");
-      const userid   = $(this).attr("data-userId");
+      const username = $(this).attr("data-user-name");
+      const userid   = $(this).attr("data-user-id");
       $(this)
         .parent()
         .remove()
