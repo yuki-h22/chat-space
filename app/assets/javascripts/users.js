@@ -19,12 +19,13 @@ $(function() {
   }
   function addDeleteUser(name, id) {
     let html = `
-    <input name='group[user_ids][]' type='hidden' value='user.id'>
-    <div class="ChatMember clearfix" id="${id}">
-      <p class="ChatMember__name">${name}</p>
-      <div class="ChatMember__remove ChatMember__button" data-user-id="${id}" data-user-name="${name}">削除</div>
-    </div>`;
-    $(".ChatMembers").append(html);
+              <div class = 'chat-group-user clearfix' id = "${id}">
+                <input name = 'group[user_ids][]' type = 'hidden' value = "${userId}" id = "group_user_ids_${userId}" />
+                <p class = 'chat-group-user__name'>${name}</p>
+                <div class ='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+              </div>
+              `
+    $(".js-add-user").append(html);
   }
     $("#user-search-field").on("keyup", function() {
       let input = $("#user-search-field").val();
@@ -46,15 +47,18 @@ $(function() {
         } else {
           addNoUser();
         }
-    
       })
       .fail(function() {
         alert("通信エラーです。ユーザーが表示できません。");
       });
     });
 
-  $(document).on('click', '.chat-group-user__btn--add' , function() {
-    addDeleteUser(userName, userId);
-
-  });
+    $(document).on('click', '.chat-group-user__btn--add' , function() {
+      const userName = $(this).attr("data-user-name");
+      const userId   = $(this).attr("data-user-id");
+      $(this)
+        .parent()
+        .remove()
+      addDeleteUser(userName, userId);
+    });
 });
