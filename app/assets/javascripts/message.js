@@ -44,6 +44,30 @@ $(function(){
     })
     return false;
   });
+
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $('.message:last').data("message-id");
+    $.ajax({
+      url: location.href,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      //追加するHTMLの入れ物を作る
+      var insertHTML = '';
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+
+      //メッセージが入ったHTMLを取得
+
+      //メッセージを追加
+
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
 });
 
 
