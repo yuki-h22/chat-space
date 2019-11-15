@@ -21,6 +21,7 @@ $bace_color : #ffffff;
     }
   }
   &_bottom{
+    overflow-y: auto;
     position: absolute;
     top: 100px;
     height: calc(100vh - 100px);

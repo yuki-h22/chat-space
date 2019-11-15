@@ -1,23 +1,23 @@
 $(function(){
-  function buildMessage(post){
-    image = ( post.image ) ? `<img src=${post.image} >` : "";
-      let html = `<div class = "main_center_thread">
+  function buildMessage(message){
+    image = ( message.image.url ) ? `<img src = ${message.image} >` : "";
+      let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
                       <div class ="main_center_thread_upper-message_name">
-                        ${post.user_name}
+                        ${message.user_name}
                       </div>
                       <div class ="main_center_thread_upper-message_date">
-                        ${post.time}
+                        ${message.time}
                       </div>
                     </div>
                     <div class = "main_center_thread_lower-message">
                       <p class = "lower-message__content">
-                        ${post.content}
+                        ${message.content}
                       </p>
                     </div>
-                      ${image}
+                    ${image}
                   </div> `
-    return html
+    $('.main_center').append(html);
   };
 
   $('#new_message').on('submit', function(e){
@@ -32,8 +32,8 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(post){
-      var html = buildMessage(post);
+    .done(function(message){
+      var html = buildMessage(message);
       $('.main_center').append(html);
       $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
       $('form')[0].reset();
@@ -44,6 +44,33 @@ $(function(){
     })
     return false;
   });
+
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.main_center_thread:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        //追加するHTMLの入れ物を作る
+        var insertHTML = '';
+        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+        messages.forEach(function (message){
+          insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
+          $('.main_center').append(insertHTML);//メッセージを追加
+        })
+        $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('更新エラー:\n自動更新に失敗しました');
+      });
+    };
+  };
+  setInterval(reloadMessages, 7000);
 });
 
 
