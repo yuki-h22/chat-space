@@ -47,26 +47,28 @@ $(function(){
 
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    last_message_id = $('.message:last').data("message-id");
-    $.ajax({
-      url: location.href,
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      //追加するHTMLの入れ物を作る
-      var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-
-      //メッセージが入ったHTMLを取得
-
-      //メッセージを追加
-
-    })
-    .fail(function() {
-      console.log('error');
-    });
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.main_center_thread:last').data("message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        //追加するHTMLの入れ物を作る
+        var insertHTML = '';
+        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+        messages.forEach(function (message){
+          insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
+          $('.main_center').append(insertHTML);//メッセージを追加
+        })
+        $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('更新エラー:\n自動更新に失敗しました');
+      });
+    };
   };
   setInterval(reloadMessages, 7000);
 });
