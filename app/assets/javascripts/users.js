@@ -19,14 +19,29 @@ $(function() {
   }
   function addDeleteUser(name, id) {
     let html = `
-              <div class = 'chat-group-user clearfix' id = "${id}">
-                <input name = 'group[user_ids][]' type = 'hidden' value = "${userId}" id = "group_user_ids_${userId}" />
-                <p class = 'chat-group-user__name'>${name}</p>
-                <div class ='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
-              </div>
-              `
+    <div class="chat-group-user clearfix" id="${id}">
+      <p class="chat-group-user__name">${name}</p>
+      <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+    </div>`;
     $(".js-add-user").append(html);
   }
+  function addMember(userId){
+      let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+      $(`#${userId}`).append(html);
+  }
+  function addListUser(name,id) {
+    let html = `
+      <div class="chat-group-user clearfix">
+        <p class="chat-group-user__name">${name}</p>
+        <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${id}" data-user-name="${name}">追加</div>
+      </div>
+    `;
+    $("#user-search-result").append(html);
+  }
+
+
+
+  
     $("#user-search-field").on("keyup", function() {
       let input = $("#user-search-field").val();
       $.ajax({
@@ -60,5 +75,15 @@ $(function() {
         .parent()
         .remove()
       addDeleteUser(userName, userId);
+      addMember(userId)
+    });
+    $(document).on('click', '.js-remove-btn' , function(){
+      const username = $(this).attr("data-userName");
+      const userid   = $(this).attr("data-userId");
+      $(this)
+        .parent()
+        .remove()
+      addListUser(username,userid);
+      
     });
 });
