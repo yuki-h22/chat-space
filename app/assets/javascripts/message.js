@@ -1,23 +1,23 @@
 $(function(){
-  function buildMessage(post){
-    image = ( post.image ) ? `<img src=${post.image} >` : "";
-      let html = `<div class = "main_center_thread">
+  function buildMessage(message){
+    image = ( message.image.url ) ? `<img src = ${message.image} >` : "";
+      let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
                       <div class ="main_center_thread_upper-message_name">
-                        ${post.user_name}
+                        ${message.user_name}
                       </div>
                       <div class ="main_center_thread_upper-message_date">
-                        ${post.time}
+                        ${message.time}
                       </div>
                     </div>
                     <div class = "main_center_thread_lower-message">
                       <p class = "lower-message__content">
-                        ${post.content}
+                        ${message.content}
                       </p>
                     </div>
-                      ${image}
+                    ${image}
                   </div> `
-    return html
+    $('.main_center').append(html);
   };
 
   $('#new_message').on('submit', function(e){
@@ -32,8 +32,8 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(post){
-      var html = buildMessage(post);
+    .done(function(message){
+      var html = buildMessage(message);
       $('.main_center').append(html);
       $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
       $('form')[0].reset();
