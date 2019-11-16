@@ -59,9 +59,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '<3.114.214.114>', user: 'ec2-user', roles: %w{app db web}
-set :ssh_otions, {
-  keys: '~/.ssh/hanitan.pem',
-  user: "ec2-user",
-  forward_agent: true,
-}
+server '3.114.214.114', user: 'ec2-user', roles: %w{app db web}
