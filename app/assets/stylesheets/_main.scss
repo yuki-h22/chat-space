@@ -31,9 +31,14 @@ $sendbtn_color : #38aef0;
     }
     &_btn{
       margin: 28px 0 auto auto;
-      padding: 10px 20px;
       color: $topbtn_color;
       border: solid 0.3px $topbtn_color;
+      .chat_edit_btn{
+        padding: 15px 25px;
+      }
+      .edit_group{
+        padding: 10px 1px;
+      }
     }
   }
   &_center{
