@@ -4,6 +4,7 @@
       .main_top_title_upper
         = @group.name
       .main_top_title_under
+        Member :
         - @group.users.each do |user|
           = user.name
     .main_top_btn
