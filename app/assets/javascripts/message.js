@@ -35,11 +35,11 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.main_center').append(html);
-      console.log("ok")
       $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
-      $('form')[0].reset();
       $(".main_bottom_textbox_text").find(".form__message").val('');
+      $(".main_bottom_textbox_img").find(".file").val('');
       $('.form__submit').prop('disabled', false);
+      $('form')[0].reset();
     })
 
     .fail(function(){
