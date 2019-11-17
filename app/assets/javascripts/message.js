@@ -1,6 +1,6 @@
 $(function(){
   function buildMessage(message){
-    image = ( message.image.url ) ? `<img src = ${message.image} >` : "";
+    image = ( message.image.url !== null) ? `<img src = ${message.image.url} >` : "";
       let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
                       <div class ="main_center_thread_upper-message_name">
@@ -35,12 +35,15 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.main_center').append(html);
+      console.log("ok")
       $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
       $('form')[0].reset();
+      $(".main_bottom_textbox_text").find(".form__message").val('');
+      $('.form__submit').prop('disabled', false);
     })
 
     .fail(function(){
-      alert('入力エラー:\nメッセージが入力されていません');
+      alert('入力エラー:\nメッセージ送信に失敗しました');
     })
     return false;
   });
