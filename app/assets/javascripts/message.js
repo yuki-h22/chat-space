@@ -1,6 +1,6 @@
 $(function(){
   function buildMessage(message){
-    image = ( message.image.url !== null) ? `<img src = ${message.image.url} >` : "";
+    image = ( message.image.url) ? `<img src = ${message.image.url} >` : "";
       let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
                       <div class ="main_center_thread_upper-message_name">
@@ -71,9 +71,9 @@ $(function(){
       .fail(function() {
         alert('更新エラー:\n自動更新に失敗しました');
       });
+      setInterval(reloadMessages, 7000);
     };
   };
-  setInterval(reloadMessages, 7000);
 });
 
 
