@@ -1,5 +1,8 @@
 $(function(){
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+
   function buildMessage(message){
+    console.log(message)
     image = ( message.image.url) ? `<img src = ${message.image.url} >` : "";
       let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
@@ -7,7 +10,7 @@ $(function(){
                         ${message.user_name}
                       </div>
                       <div class ="main_center_thread_upper-message_date">
-                        ${message.time}
+                        ${message.date}
                       </div>
                     </div>
                     <div class = "main_center_thread_lower-message">
@@ -50,8 +53,8 @@ $(function(){
 
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    if (window.location.href.match(/\/groups\/\d+\/messages/)){
       var last_message_id = $('.main_center_thread:last').data("message-id");
+
       $.ajax({
         url: "api/messages",
         type: 'get',
@@ -64,15 +67,14 @@ $(function(){
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
         messages.forEach(function (message){
           insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
-          $('.main_center_thread').append(insertHTML);//メッセージを追加
+          $('.main_center').append(insertHTML);//メッセージを追加
+          $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+          console.log(message)
         })
-        $('.main_center_thread').animate({scrollTop: $(".main_center_thread")[0].scrollHeight});
       })
       .fail(function() {
         alert('更新エラー:\n自動更新に失敗しました');
       });
-    }else{
-      return false;
     };
   };
   setInterval(reloadMessages, 7000);
