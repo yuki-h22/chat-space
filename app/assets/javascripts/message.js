@@ -58,22 +58,26 @@ $(function(){
         dataType: 'json',
         data: {id: last_message_id}
       })
+      console.log(last_message_id)
       .done(function(messages) {
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
+        console.log(last_message_id)
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
         messages.forEach(function (message){
           insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
-          $('.main_center').append(insertHTML);//メッセージを追加
+          $('.main_center_thread').append(insertHTML);//メッセージを追加
         })
-        $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+        $('.main_center_thread').animate({scrollTop: $(".main_center_thread")[0].scrollHeight});
       })
       .fail(function() {
         alert('更新エラー:\n自動更新に失敗しました');
       });
+    }else{
+      return false;
     };
-    setInterval(reloadMessages, 7000);
   };
+  setInterval(reloadMessages, 7000);
 });
 
 
