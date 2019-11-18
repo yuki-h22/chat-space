@@ -71,8 +71,8 @@ $(function(){
       .fail(function() {
         alert('更新エラー:\n自動更新に失敗しました');
       });
-      setInterval(reloadMessages, 7000);
     };
+    setInterval(reloadMessages, 7000);
   };
 });
 
