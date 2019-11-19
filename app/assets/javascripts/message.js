@@ -1,5 +1,4 @@
 $(function(){
-  if (window.location.href.match(/\/groups\/\d+\/messages/)){
 
   function buildMessage(message){
     console.log(message)
@@ -54,7 +53,7 @@ $(function(){
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       var last_message_id = $('.main_center_thread:last').data("message-id");
-
+      if (window.location.href.match(/\/groups\/\d+\/messages/)){
       $.ajax({
         url: "api/messages",
         type: 'get',
