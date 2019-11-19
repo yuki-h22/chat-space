@@ -52,6 +52,7 @@ $(function(){
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       var last_message_id = $('.main_center_thread:last').data("message-id");
+      alert('更新エラー:\n自動更新に失敗しました');
       if (window.location.href.match(/\/groups\/\d+\/messages/)){
       $.ajax({
         url: "api/messages",
