@@ -66,7 +66,6 @@ $(function(){
             insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
             $('.main_center').append(insertHTML);//メッセージを追加
             $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
-          }else{
           };
         });
       })
