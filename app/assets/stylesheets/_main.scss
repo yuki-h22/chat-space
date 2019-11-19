@@ -1,5 +1,5 @@
 $wordcolor : #434a54;
-$topbtn_color : skyblue;
+$topbtn_color : #38aef0;
 $sendbtn_color : #38aef0;
 
 @mixin displayflex() {
@@ -34,12 +34,11 @@ $sendbtn_color : #38aef0;
       color: $topbtn_color;
       border: solid 0.3px $topbtn_color;
       .chat_edit_btn{
-        padding: 15px 25px;
         text-decoration: none;
-        color: $wordcolor;
+        color: $topbtn_color;
       }
       .edit_group{
-        padding: 10px 0px;
+        padding: 8px 20px;
         
       }
     }
@@ -55,7 +54,7 @@ $sendbtn_color : #38aef0;
       padding-right: 40px;  
       padding-top: 46px;
       &_upper-message{
-        word-break: normal;
+        display: flex;
         &_name{
           font-size: 16px;
           font-weight: bold;
@@ -67,6 +66,11 @@ $sendbtn_color : #38aef0;
           margin-left: 10px;
         }
       }
+      &_lower-message{
+        font-size: 14px;
+        color: $wordcolor;
+        margin-top: 10px;
+      }
     }
   }
   &_bottom{
@@ -77,19 +81,22 @@ $sendbtn_color : #38aef0;
     &_textbox{
       float: left;
       @include displayflex();
-      height: 60px;
-      width: calc(100% - 140px);
+      width: calc(100% - 122px);
       &_text{
         font-size: 16px;
         color: $wordcolor;
         height: 50px;
         width: 100%;
-        margin-right: -30px;
+        margin-right: -20px;
+      }
+      .form__message{
+        height: 50px;
       }
       &_img{
+        background-color: #fff;
         float: right;
         font-size: 20px;
-        padding-bottom: 10px;
+        padding-bottom: 1px;
       }     
       
     }
@@ -104,12 +111,6 @@ $sendbtn_color : #38aef0;
   display: none;
 }
 
-.main_top_btn:hover{
-  color: #ffffff;
-  border: solid 0.3px $topbtn_color;
-  background-color: $topbtn_color;
-}
-
 .form__message{
   height: 40px;
   width: 100%;
@@ -118,15 +119,11 @@ $sendbtn_color : #38aef0;
 }
 
 .form__submit{
-  margin-left: 20px;
+  margin-top: 2px;
+  margin-left: 5px;
   padding: 10px 30px;
-  color: black;
+  color: $bace_color;
+  width: 100px;
   border: solid 1px $sendbtn_color;
   background-color: $sendbtn_color;
-}
-
-.form__submit:hover {
-  background-color: #fff;
-  border-color: $sendbtn_color;
-  color: $sendbtn_color;
 }
