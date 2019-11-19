@@ -1,7 +1,6 @@
 $(function(){
 
   function buildMessage(message){
-    console.log(message)
     image = ( message.image.url) ? `<img src = ${message.image.url} >` : "";
       let html = `<div class = "main_center_thread" data-message-id="${message.id}">
                     <div class ="main_center_thread_upper-message">
@@ -61,15 +60,18 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        //追加するHTMLの入れ物を作る
+        console.log(messages)
         var insertHTML = '';
-        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
         messages.forEach(function (message){
-          insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
-          $('.main_center').append(insertHTML);//メッセージを追加
-          $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
-          console.log(message)
-        })
+          if (message.id > last_message_id){
+            insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
+            $('.main_center').append(insertHTML);//メッセージを追加
+            $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
+            console.log("1")
+          }else{
+            console.log("ok")
+          };
+        });
       })
       .fail(function() {
         alert('更新エラー:\n自動更新に失敗しました');
