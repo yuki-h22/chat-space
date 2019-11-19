@@ -52,7 +52,6 @@ $(function(){
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       var last_message_id = $('.main_center_thread:last').data("message-id");
-      alert('更新エラー:\n自動更新に失敗しました');
       if (window.location.href.match(/\/groups\/\d+\/messages/)){
       $.ajax({
         url: "api/messages",
@@ -61,16 +60,13 @@ $(function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        console.log(messages)
         var insertHTML = '';
         messages.forEach(function (message){
           if (message.id > last_message_id){
             insertHTML = buildMessage(message);  //メッセージが入ったHTMLを取得
             $('.main_center').append(insertHTML);//メッセージを追加
             $('.main_center').animate({scrollTop: $(".main_center")[0].scrollHeight});
-            console.log("1")
           }else{
-            console.log("ok")
           };
         });
       })
