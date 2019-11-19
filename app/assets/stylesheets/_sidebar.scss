@@ -13,12 +13,11 @@ $bace_color : #ffffff;
     color: $bace_color;
     font-weight: bold;
     &_name{
-      font-size: 25px;
+      font-size: 16px;
       margin: auto 0;
     }
     &_icon{
       margin: auto 0 auto auto;
-      font-size: 20px;
     }
   }
   &_bottom{
@@ -28,7 +27,6 @@ $bace_color : #ffffff;
     height: calc(100vh - 100px);
     width: 260px;
     background-color: #2f3e51;
-    font-size: 16px;
     padding: 0px 20px;
     color: $bace_color;
     &_group{
