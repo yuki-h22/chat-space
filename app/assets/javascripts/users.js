@@ -55,50 +55,53 @@ $(function() {
 
 
   
-    $("#user-search-field").on("keyup", function() {
-      let input = $("#user-search-field").val();
-      // var users_id = [];
-      // appendUserId(users_id);
+  $("#user-search-field").on("keyup", function() {
+    let input = $("#user-search-field").val();
+    // var users_id = [];
+    // appendUserId(users_id);
 
-      $.ajax({
-        type: "GET",
-        url: "/users",
-        data: { keyword: input },
-        dataType: "json"
-      })
-      .done(function(users) {
-        $("#user-search-result").empty();
-        if (users.length !== 0) {
-          users.forEach(function(user) {
-            addUser(user);
-          });
-        } else if (input.length == 0) {
-          return false;
-        } else {
-          addNoUser();
-        }
-      })
-      .fail(function() {
-        alert("通信エラーです。ユーザーが表示できません。");
-      });
+    $.ajax({
+      type: "GET",
+      url: "/users",
+      data: { keyword: input },
+      dataType: "json"
+    })
+    .done(function(users) {
+      $("#user-search-result").empty();
+      if (users.length !== 0) {
+        users.forEach(function(user) {
+          addUser(user);
+        });
+      } else if (input.length == 0) {
+        return false;
+      } else {
+        addNoUser();
+      }
+    })
+    .fail(function() {
+      alert("通信エラーです。ユーザーが表示できません。");
     });
+  });
 
-    $(document).on('click', '.chat-group-user__btn--add' , function() {
-      const userName = $(this).attr("data-user-name");
-      const userId   = $(this).attr("data-user-id");
-      $(this)
-        .parent()
-        .remove()
+  $(document).on('click', '.chat-group-user__btn--add' , function() {
+    const userName = $(this).attr("data-user-name");
+    const userId   = $(this).attr("data-user-id");
+    $(this)
+      .parent()
+      .remove()
       addDeleteUser(userName, userId);
       addMember(userId)
     });
-    $(document).on('click', '.js-remove-btn' , function(){
-      const username = $(this).attr("data-user-name");
-      const userid   = $(this).attr("data-user-id");
-      $(this)
-        .parent()
-        .remove()
-      addListUser(username,userid);
-      
-    });
+  $(document).on('click', '.js-remove-btn' , function(){
+    const username = $(this).attr("data-user-name");
+    const userid   = $(this).attr("data-user-id");
+    $(this)
+    .parent()
+    .remove()
+    // if (username = null){
+    //   return false;
+    // }else{
+    //   addListUser(username,userid);
+    // }
+  });
 });
